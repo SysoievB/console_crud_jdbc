@@ -1,11 +1,11 @@
 package com.console.crud.jdbc.app.repository;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface GenericRepository<T, ID> {
     T save(T data);
 
-    ArrayList<T> getAll();
+    List<T> getAll();
 
     T getById(ID id);
 
