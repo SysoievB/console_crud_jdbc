@@ -14,12 +14,6 @@
     </properties>
 
     <dependencies>
-        <!-- liquibase/liquibase-core -->
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>4.6.2</version>
-        </dependency>
         <!-- mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>

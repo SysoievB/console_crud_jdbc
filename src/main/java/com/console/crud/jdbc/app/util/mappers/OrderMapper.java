@@ -6,37 +6,28 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OrderMapper {
 
     public static List<Order> mapToOrders(ResultSet resultSet) {
         List<Order> orders = new ArrayList<>();
-
         try {
             while (resultSet.next()) {
-                orders.stream()
-                        .map(order -> {
-                            try {
-                                order.setId(resultSet.getLong("id"));
-                                order.setName(resultSet.getString("name"));
-                            } catch (SQLException e) {
-                                e.printStackTrace();
-                            }
-                            return order;
-                        }).collect(Collectors.toList());
+                Order order = new Order();
+                order.setId(resultSet.getLong("id"));
+                order.setName(resultSet.getString("order_name"));
+                orders.add(order);
             }
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return orders;
     }
 
     public static Order mapperOrder(ResultSet resultSet) throws SQLException {
         Order order = new Order();
         order.setId(resultSet.getLong("id"));
-        order.setName(resultSet.getString("name"));
+        order.setName(resultSet.getString("order_name"));
         return order;
     }
 }
