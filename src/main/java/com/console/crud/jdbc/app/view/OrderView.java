@@ -55,14 +55,14 @@ public class OrderView {
     public void run() {
         boolean go = true;
         while (go) {
-            System.out.println("\nChoose option, please :");
-            System.out.println("Enter number : ");
-            System.out.println("1. Show all rows");
-            System.out.println("2. Insert new row");
-            System.out.println("3. Delete row ");
-            System.out.println("4. Update row  ");
-            System.out.println("5. Search by id ");
-            System.out.println("6. End ");
+            System.out.println("\nChoose option, please:" +
+                    "\nEnter number:" +
+                    "\n1. Show all rows" +
+                    "\n2. Insert new row" +
+                    "\n3. Delete row" +
+                    "\n4. Update row" +
+                    "\n5. Search by id" +
+                    "\n6. End");
             int number = scanner.nextInt();
             switch (number) {
                 case 1:
@@ -84,7 +84,8 @@ public class OrderView {
                     go = false;
                     break;
                 default:
-                    System.out.println("Wrong number \nEnter number from 1 to 6, please");
+                    System.out.println("Wrong number " +
+                            "\nEnter number from 1 to 6, please");
             }
         }
     }
