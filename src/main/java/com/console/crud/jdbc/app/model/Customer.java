@@ -2,6 +2,7 @@ package com.console.crud.jdbc.app.model;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Customer {
     private Long id;
@@ -61,8 +62,19 @@ public class Customer {
         this.orders = orders;
     }
 
+    public void setCustomerOrders(Order customerOrder) {
+        this.orders.add(customerOrder);
+    }
+
+    public String ordersToString() {
+        return "" + orders
+                .stream()
+                .map(Order::getName)
+                .collect(Collectors.joining(" "));
+    }
+
     @Override
     public String toString() {
-        return id + " " + name + " " + surname + " " + account + " " + orders;
+        return id + " " + name + " " + surname + " " + account.getStatus().name() + " " + ordersToString();
     }
 }
