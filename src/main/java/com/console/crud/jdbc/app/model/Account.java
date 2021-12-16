@@ -7,6 +7,10 @@ public class Account {
     public Account() {
     }
 
+    public Account(Long id) {
+        this.id = id;
+    }
+
     public Account(Long id, AccountStatus status) {
         this.id = id;
         this.status = status;

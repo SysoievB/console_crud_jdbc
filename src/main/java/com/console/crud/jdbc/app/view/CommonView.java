@@ -6,11 +6,13 @@ public class CommonView {
 
     private OrderView orderView;
     private AccountView accountView;
+    private CustomerView customerView;
     private static CommonView view;
 
     private CommonView() {
         orderView = new OrderView();
         accountView = new AccountView();
+        customerView = new CustomerView();
     }
 
     public static CommonView getInstance() {
@@ -29,6 +31,7 @@ public class CommonView {
                     "\nEnter number:" +
                     "\n1.Orders" +
                     "\n2.Accounts" +
+                    "\n3.Customers" +
                     "\n4.Exit");
             int number = scanner.nextInt();
             switch (number) {
@@ -37,6 +40,9 @@ public class CommonView {
                     break;
                 case 2:
                     runAccount();
+                    break;
+                case 3:
+                    runCustomer();
                     break;
                 case 4:
                     go = false;
@@ -54,6 +60,10 @@ public class CommonView {
 
     public void runAccount() {
         accountView.run();
+    }
+
+    public void runCustomer() {
+        customerView.run();
     }
 
 }

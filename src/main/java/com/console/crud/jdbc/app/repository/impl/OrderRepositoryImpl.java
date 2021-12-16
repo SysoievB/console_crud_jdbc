@@ -19,6 +19,7 @@ public class OrderRepositoryImpl implements OrderRepository {
                 preparedStatement.setLong(1, order.getId());
                 preparedStatement.setString(2, order.getName());
                 preparedStatement.executeUpdate();
+                connection.commit();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -67,6 +68,7 @@ public class OrderRepositoryImpl implements OrderRepository {
             preparedStatement.setString(1, order.getName());
             preparedStatement.setLong(2, order.getId());
             preparedStatement.executeUpdate();
+            connection.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,6 +80,7 @@ public class OrderRepositoryImpl implements OrderRepository {
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM orders WHERE id = ?")) {
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
+            connection.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

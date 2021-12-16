@@ -19,6 +19,7 @@ public class AccountRepositoryImpl implements AccountRepository {
                 preparedStatement.setLong(1, account.getId());
                 preparedStatement.setString(2, account.getStatus().name());
                 preparedStatement.executeUpdate();
+                connection.commit();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -67,6 +68,7 @@ public class AccountRepositoryImpl implements AccountRepository {
             preparedStatement.setString(1, account.getStatus().name());
             preparedStatement.setLong(2, account.getId());
             preparedStatement.executeUpdate();
+            connection.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,6 +80,7 @@ public class AccountRepositoryImpl implements AccountRepository {
              PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM accounts WHERE id = ?")) {
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
+            connection.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

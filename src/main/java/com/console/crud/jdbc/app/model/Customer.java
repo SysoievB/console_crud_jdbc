@@ -14,6 +14,12 @@ public class Customer {
     public Customer() {
     }
 
+    public Customer(Long id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
     public Customer(Long id, String name, String surname, Account account, Set<Order> orders) {
         this.id = id;
         this.name = name;
@@ -66,15 +72,15 @@ public class Customer {
         this.orders.add(customerOrder);
     }
 
-    public String ordersToString() {
-        return "" + orders
+    public Set<Long> toLongSet() {
+        return orders
                 .stream()
-                .map(Order::getName)
-                .collect(Collectors.joining(" "));
+                .map(Order::getId)
+                .collect(Collectors.toSet());
     }
 
     @Override
     public String toString() {
-        return id + " " + name + " " + surname + " " + account.getStatus().name() + " " + ordersToString();
+        return id + " " + name + " " + surname + " " + account.getId() + " " + toLongSet();
     }
 }
