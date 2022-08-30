@@ -56,7 +56,7 @@ public class AccountRepositoryImpl implements AccountRepository {
         }
         if (account == null) {
             Optional<Account> empty = Optional.empty();
-            return empty.orElseThrow(NullPointerException::new);
+            return empty.orElseThrow();
         } else return account;
     }
 

@@ -56,7 +56,7 @@ public class OrderRepositoryImpl implements OrderRepository {
         }
         if (order == null) {
             Optional<Order> empty = Optional.empty();
-            return empty.orElseThrow(NullPointerException::new);
+            return empty.orElseThrow();
         } else return order;
     }
 

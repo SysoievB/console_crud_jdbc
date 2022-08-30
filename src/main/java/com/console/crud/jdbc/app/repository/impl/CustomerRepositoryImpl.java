@@ -83,7 +83,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         }
         if (customer == null) {
             Optional<Customer> empty = Optional.empty();
-            return empty.orElseThrow(NullPointerException::new);
+            return empty.orElseThrow();
         } else return customer;
     }
 
